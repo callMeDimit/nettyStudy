@@ -13,7 +13,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
  */
 public class TimeServer {
 	public static final int PORT = 22222;
-	public static final String IP = "192.168.60.174";
+	public static final String IP = "192.168.57.10";
 	
 	public static void main(String[] args) {
 		new TimeServer().bind(PORT);
@@ -24,7 +24,7 @@ public class TimeServer {
 	 * @param port
 	 */
 	public void bind(int port) {
-		EventLoopGroup bossGroup = new NioEventLoopGroup();
+		EventLoopGroup bossGroup = new NioEventLoopGroup(1);
 		EventLoopGroup workGroup = new NioEventLoopGroup();
 		try {
 			ServerBootstrap b = new ServerBootstrap();

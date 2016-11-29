@@ -4,12 +4,14 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.LineBasedFrameDecoder;
 import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.logging.LoggingHandler;
 
 
 public class ChildChannelHander extends ChannelInitializer<SocketChannel>{
 
 	@Override
 	protected void initChannel(SocketChannel arg0) throws Exception {
+		arg0.pipeline().addLast(new LoggingHandler());
 		arg0.pipeline().addLast(new LineBasedFrameDecoder(1024));
 		arg0.pipeline().addLast(new StringDecoder());
 		arg0.pipeline().addLast(new TimeServerHandler());

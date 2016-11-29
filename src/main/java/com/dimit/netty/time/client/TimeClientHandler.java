@@ -24,7 +24,7 @@ public class TimeClientHandler extends ChannelHandlerAdapter {
 			msg = Unpooled.buffer(req.length);
 			msg.writeBytes(req);
 			ctx.writeAndFlush(msg);
-			TimeUnit.SECONDS.sleep(1);
+//			TimeUnit.SECONDS.sleep(1);
 		}
 	}
 
